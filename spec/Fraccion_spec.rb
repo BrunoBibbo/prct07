@@ -1,4 +1,4 @@
-require "lib/Fraccion.rb"
+require "Fraccion.rb"
 
 describe Fraccion do
 
@@ -109,12 +109,6 @@ describe Fraccion do
 	end
 
 	describe "Comprobando operaciones logicas" do
-		it "Comprobando <" do
-		p6= Fraccion.new(2, 88)
-		p7 = Fraccion.new(2,60)
-		p6.<(p7).should eq(true)
-		end
-
 
 		it "Comprobando >" do
 		p6= Fraccion.new(2, 88)
