@@ -1,5 +1,6 @@
 
 require "./gcd.rb"
+include Comparable
 
 class Fraccion
 #Se debe invocar al metodo num() para obtener el numerador
@@ -90,47 +91,15 @@ class Fraccion
         Fraccion.new(@num * other.den, @den * other.num).min
 
         end
-#Se debe de poder comprobar si una fracion es menor que otra
-        def <(other)
-                float1 = @num.to_f / @den.to_f
-                float2 = other.num.to_f / other.den.to_f
-                if(float1 < float2)
-                        return true
-                end
-                false
-        end
-# Se debe de poder comprobar si una fracion es mayor que otra
-        def >(other)
-                float1 = @num.to_f / @den.to_f
-                float2 = other.num.to_f / other.den.to_f
-                if(float1 > float2)
-                        return true
-                end
-                false
-        end
-#Se debe de poder comprobar si una fracion es mayor o igual que otra
-        def >=(other)
-                float1 = @num.to_f / @den.to_f
-                float2 = other.num.to_f / other.den.to_f
-                if(float1 >= float2)
-                        return true
-                end
-                false
-        end
-#  Se debe de poder comprobar si una fracion es menor o igual que otra
-        def <=(other)
-                float1 = @num.to_f / @den.to_f
-                float2 = other.num.to_f / other.den.to_f
-                if(float1 <= float2)
-                        return true
-                end
-                false
-        end
+
+	def <=>(other)
+		(@num/@den)<=>(other.num()/other.den())
+	end
 
 end
 
 f1 = Fraccion.new(4.0,5)
-f2 = Fraccion.new(6,3)
+f2 = Fraccion.new(6,4)
 f3 = Fraccion.new(-7,4)
 f4 = Fraccion.new(8,6)
 
@@ -163,4 +132,3 @@ puts f2 * f4
 
 puts "La division entre la fraccion 2 y la fraccion 4: "
 puts f2 / f4
-
